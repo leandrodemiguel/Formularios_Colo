@@ -8,8 +8,20 @@ def login():
 
     if st.button("Ingresar"):
         if (
-            usuario == st.secrets["auth_user"]
-            and contraseña == st.secrets["auth_password"]
+            usuario == st.secrets["auth_user1"]
+            and contraseña == st.secrets["auth_password1"]
+        ):
+            st.session_state["autenticado"] = True
+            st.rerun()
+        elif (
+            usuario == st.secrets["auth_user2"]
+            and contraseña == st.secrets["auth_password2"]
+        ):
+            st.session_state["autenticado"] = True
+            st.rerun()
+        elif (
+            usuario == st.secrets["auth_user3"]
+            and contraseña == st.secrets["auth_password3"]
         ):
             st.session_state["autenticado"] = True
             st.rerun()
