@@ -28,6 +28,10 @@ def login():
         else:
             st.error("Usuario o contraseña incorrectos")
 
+    # return usuario
+    st.session_state["usuario"] = usuario   # Almaceno el usuario en session_state para que persista entre "re-runs".
+                                            # Normalmente usaría "return", pero el return normal NO sobrevive los "re-runs".
+
 def logout():
     if st.button("Cerrar sesión"):
         st.session_state["autenticado"] = False
