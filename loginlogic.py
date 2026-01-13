@@ -38,4 +38,4 @@ def login():
 def logout():
     if st.button("Cerrar sesión"):
         st.session_state["autenticado"] = False
-        st.switch_page("app.py")
+        st.switch_page("login.py")
