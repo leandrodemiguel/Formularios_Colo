@@ -117,10 +117,11 @@ def insertar_datos_prueba():
     conn.close()
     print("Datos de prueba insertados correctamente.")
 
+
 def obtener_datos_keepalive():
     conn = get_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT id, nombre_del_curso, codigo_pdf, nombre_del_docente, apellido_del_docente, fecha_inicio, fecha_fin, horario, lugar, comentarios FROM planillasfirmas ORDER BY id DESC")
+    cursor.execute("SELECT id, nombre_del_curso, codigo_pdf, nombre_del_docente, apellido_del_docente, fecha_inicio, fecha_fin, horario, lugar, comentarios FROM keepalive ORDER BY id DESC")
     datos = cursor.fetchall()
     conn.close()
     return datos
