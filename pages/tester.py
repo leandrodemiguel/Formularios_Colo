@@ -35,8 +35,8 @@ if (usuario == st.secrets["auth_user1"]):
         insertar_datos_prueba()
         st.success('datos escritos correctamente.')
 
-    with st.expander("Explorar datos de test"):
-        dftest = dataview(tester)
+    st.write("Exploramos los datos de testeo:")
+    dftest = dataview(tester)
 
 else:
     st.write("No tenés acceso a esta página")
