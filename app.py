@@ -13,4 +13,5 @@ if not st.session_state["autenticado"]:
     login()
     st.stop()
 
+if st.session_state["autenticado"]:
     st.switch_page("pages/planillasfirmas.py")
