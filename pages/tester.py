@@ -31,13 +31,11 @@ if (usuario == st.secrets["auth_user1"]):
 
     basedeprueba = st.button("Generar base de datos de prueba")
 
-    verdatostester = st.button("Ver los datos de prueba")
-
     if basedeprueba:
         insertar_datos_prueba()
         st.success('datos escritos correctamente.')
-    
-    if verdatostester:
+
+    with st.expander("Explorar datos de test"):
         dftest = dataview(tester)
 
 else:
