@@ -104,7 +104,7 @@ def insertar_datos_prueba():
         comentarios = random.choice(["", "Curso intensivo", "Requiere PC", "Material incluido"])
 
         cursor.execute("""
-            INSERT INTO planillasfirmas (
+            INSERT INTO keepalive (
                 nombre_del_curso, codigo_pdf, nombre_del_docente, apellido_del_docente,
                 fecha_inicio, fecha_fin, horario, lugar, comentarios
             ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
@@ -116,3 +116,11 @@ def insertar_datos_prueba():
     conn.commit()
     conn.close()
     print("Datos de prueba insertados correctamente.")
+
+def obtener_datos_keepalive():
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT id, nombre_del_curso, codigo_pdf, nombre_del_docente, apellido_del_docente, fecha_inicio, fecha_fin, horario, lugar, comentarios FROM planillasfirmas ORDER BY id DESC")
+    datos = cursor.fetchall()
+    conn.close()
+    return datos

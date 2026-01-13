@@ -5,9 +5,24 @@
 -- TABLAS
 --
 
--- Para crear la tabla (si es que no existe)
+-- Para crear la tabla "planillasfirmas" (si es que no existe)
 
-create table cursos (
+create table planillasfirmas (
+    id serial primary key,
+    nombre_del_curso text not null,
+    nombre_del_docente text not null,
+    apellido_del_docente text not null,
+    fecha_inicio date,
+    fecha_fin date,
+    horario text,
+    lugar text,
+    comentarios text,
+    codigo_pdf text unique
+);
+
+-- Para crear la tabla "keepalive" (si es que no existe)
+
+create table keepalive (
     id serial primary key,
     nombre_del_curso text not null,
     nombre_del_docente text not null,

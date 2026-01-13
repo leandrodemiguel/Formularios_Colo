@@ -6,7 +6,8 @@ from login import (
 from db import (
     # crear_tabla,
     obtener_cursos,
-    insertar_datos_prueba
+    insertar_datos_prueba,
+    obtener_datos_keepalive
 )
 from form import (
     formulario
@@ -75,7 +76,15 @@ if (usuario == st.secrets["auth_user1"]):
 
     with st.expander("Testing"):
 
+        tester = obtener_datos_keepalive()
+
         basedeprueba = st.button("Generar base de datos de prueba")
+
+        verdatostester = st.button("Ver los datos de prueba")
 
         if basedeprueba:
             insertar_datos_prueba()
+            st.success('datos escritos correctamente.')
+        
+        if verdatostester:
+            dftest = dataview(tester)
