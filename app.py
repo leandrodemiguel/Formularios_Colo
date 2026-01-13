@@ -1,6 +1,7 @@
 import streamlit as st
 
-st.set_page_config(layout="wide")
+# Para hacer el wide. Funciona bien:
+# st.set_page_config(layout="wide")
 
 pg = st.navigation([
     st.Page("login.py", title="🔐 Login"),
