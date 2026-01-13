@@ -29,7 +29,7 @@ if (usuario == st.secrets["auth_user1"]):
     tester = obtener_datos_keepalive()
     # tester = ""
 
-    basedeprueba = st.button("Generar base de datos de prueba")
+    basedeprueba = st.button("Generar datos de testeo")
 
     if basedeprueba:
         insertar_datos_prueba()

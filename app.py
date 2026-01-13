@@ -12,3 +12,5 @@ if not st.session_state["autenticado"]:
                         # No lo puedo usar porque los re-runs borran los return (no tienen persistencia).
     login()
     st.stop()
+
+    st.switch_page("pages/planillasfirmas.py")
