@@ -51,8 +51,8 @@ st.divider()
 # Mostrar los datos cargados
 st.subheader("📄 Registros existentes")
 
-#cursos = obtener_cursos()
-cursos = ""
+cursos = obtener_cursos()
+# cursos = ""
 
 if cursos:
 
