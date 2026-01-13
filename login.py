@@ -12,19 +12,22 @@ def login():
             and contraseña == st.secrets["auth_password1"]
         ):
             st.session_state["autenticado"] = True
-            st.rerun()
+            # st.rerun()
+            st.switch_page("pages/planillasfirmas.py")
         elif (
             usuario == st.secrets["auth_user2"]
             and contraseña == st.secrets["auth_password2"]
         ):
             st.session_state["autenticado"] = True
-            st.rerun()
+            # st.rerun()
+            st.switch_page("pages/planillasfirmas.py")
         elif (
             usuario == st.secrets["auth_user3"]
             and contraseña == st.secrets["auth_password3"]
         ):
             st.session_state["autenticado"] = True
-            st.rerun()
+            # st.rerun()
+            st.switch_page("pages/planillasfirmas.py")
         else:
             st.error("Usuario o contraseña incorrectos")
 
@@ -35,4 +38,4 @@ def login():
 def logout():
     if st.button("Cerrar sesión"):
         st.session_state["autenticado"] = False
-        st.rerun()
+        st.switch_page("app.py")
