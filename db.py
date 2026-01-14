@@ -5,7 +5,7 @@ from pdfid import generar_codigo_curso
 import psycopg2
 import streamlit as st
 
-# DB_NAME = "data/planillasfirmas.db"
+# Funciones comunes
 
 def get_connection():
     return psycopg2.connect(
@@ -15,6 +15,10 @@ def get_connection():
         password= st.secrets["db_password"],
         dbname= st.secrets["db_name"]
     )
+
+# ------------------------------------------------- /-\*/-\ ------------------------------------------------- #
+
+# Funciones para la planilla de firmas
 
 def insertar_curso(nombre_del_curso, codigo_pdf, nombre_del_docente, apellido_del_docente, fecha_inicio, fecha_fin, horario, lugar, comentarios):
     conn = get_connection()
@@ -63,6 +67,102 @@ def obtener_cursos():
     return datos
 
 # ------------------------------------------------- /-\*/-\ ------------------------------------------------- #
+
+# Funciones para la planilla de nóminas
+
+def insertar_nomina(nombre_del_curso, codigo_pdf, fecha_inicio, fecha_fin, creditos, lugar, comentarios):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("""
+        INSERT INTO planillasnominas (nombre_del_curso, codigo_pdf, fecha_inicio, fecha_fin, creditos, lugar, comentarios)
+        VALUES (%s, %s, %s, %s, %s, %s, %s)
+    """, (nombre_del_curso, codigo_pdf, fecha_inicio, fecha_fin, creditos, lugar, comentarios))
+    conn.commit()
+    conn.close()
+
+
+def eliminar_nomina(id_curso):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM planillasnominas WHERE id = %s", (id_curso,))
+    conn.commit()
+    conn.close()
+
+
+def actualizar_nomina(id_curso, nombre_del_curso, fecha_inicio, fecha_fin, creditos, lugar, comentarios):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("""
+        UPDATE planillasnominas
+        SET nombre_del_curso = %s, 
+            fecha_inicio = %s, 
+            fecha_fin = %s, 
+            creditos = %s, 
+            lugar = %s, 
+            comentarios = %s
+        WHERE id = %s
+    """, (nombre_del_curso, fecha_inicio, fecha_fin, creditos, lugar, comentarios, id_curso))
+    conn.commit()
+    conn.close()
+
+
+def obtener_nomina():
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT id, nombre_del_curso, codigo_pdf, fecha_inicio, fecha_fin, creditos, lugar, comentarios FROM planillasnominas ORDER BY id DESC")
+    datos = cursor.fetchall()
+    conn.close()
+    return datos
+
+# ------------------------------------------------- /-\*/-\ ------------------------------------------------- #
+
+# Funciones para la planilla de equivalencias
+
+def insertar_equivalencias(nombre_del_curso, codigo_pdf, creditos, codigoinap, comentarios):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("""
+        INSERT INTO planillasequivalencias (nombre_del_curso, codigo_pdf, creditos, codigoinap, comentarios)
+        VALUES (%s, %s, %s, %s, %s)
+    """, (nombre_del_curso, codigo_pdf, creditos, codigoinap, comentarios))
+    conn.commit()
+    conn.close()
+
+
+def eliminar_equivalencias(id_curso):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM planillasequivalencias WHERE id = %s", (id_curso,))
+    conn.commit()
+    conn.close()
+
+
+def actualizar_equivalencias(id_curso, nombre_del_curso, creditos, codigoinap, comentarios):
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("""
+        UPDATE planillasequivalencias
+        SET nombre_del_curso = %s, 
+            creditos = %s, 
+            codigoinap = %s, 
+            comentarios = %s, 
+        WHERE id = %s
+    """, (nombre_del_curso, creditos, codigoinap, comentarios, id_curso))
+    conn.commit()
+    conn.close()
+
+
+def obtener_equivalencias():
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT id, nombre_del_curso, codigo_pdf, creditos, codigoinap, comentarios FROM planillasequivalencias ORDER BY id DESC")
+    datos = cursor.fetchall()
+    conn.close()
+    return datos
+
+# ------------------------------------------------- /-\*/-\ ------------------------------------------------- #
+
+# Funciones para tester
 
 def insertar_datos_prueba():
     conn = get_connection()

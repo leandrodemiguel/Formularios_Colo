@@ -1,11 +1,11 @@
-#Para las nóminas
+# Para las nÃ³minas
 Nombre de curso
 Fecha de inicio
-Fecha de finalización
-Créditos
-Lugar del curso:
+Fecha de finalizaciÃ³n
+CrÃ©ditos
+Lugar del curso
 
 # Equivalencias
 Nombre del curso
-Créditos
-Código INAP completo
+CrÃ©ditos
+CÃ³digo INAP completo

@@ -1,0 +1,1 @@
+# Acá va a ir el código que muestra el formulario para las equivalencias
