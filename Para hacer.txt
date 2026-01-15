@@ -12,4 +12,3 @@ Código INAP completo
 
 # Falta arreglar
 edits.py
-equivalencias.py

@@ -30,7 +30,7 @@ if (usuario == st.secrets["auth_user1"] or usuario == st.secrets["auth_user2"] o
     # Arranca la app:
 
     # Título de la sección del formulario
-    st.title("📋 Carga de planillas de nominas")
+    st.title("📋 Carga de nóminas")
 
     # Cargamos el formulario de ingreso de datos
     formulario("nominas")

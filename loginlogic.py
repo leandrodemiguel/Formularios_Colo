@@ -13,21 +13,21 @@ def login():
         ):
             st.session_state["autenticado"] = True
             # st.rerun()
-            st.switch_page("pages/planillasfirmas.py")
+            st.switch_page("pages/firmas.py")
         elif (
             usuario == st.secrets["auth_user2"]
             and contraseña == st.secrets["auth_password2"]
         ):
             st.session_state["autenticado"] = True
             # st.rerun()
-            st.switch_page("pages/planillasfirmas.py")
+            st.switch_page("pages/firmas.py")
         elif (
             usuario == st.secrets["auth_user3"]
             and contraseña == st.secrets["auth_password3"]
         ):
             st.session_state["autenticado"] = True
             # st.rerun()
-            st.switch_page("pages/planillasfirmas.py")
+            st.switch_page("pages/firmas.py")
         else:
             st.error("Usuario o contraseña incorrectos")
 
