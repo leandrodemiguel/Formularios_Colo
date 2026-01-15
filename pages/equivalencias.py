@@ -3,7 +3,7 @@ from loginlogic import (
     logout
 )
 from db import (
-    obtener_nomina,
+    obtener_equivalencias,
 )
 from form import (
     formulario
@@ -41,7 +41,7 @@ if (usuario == st.secrets["auth_user1"] or usuario == st.secrets["auth_user2"] o
     # Mostrar los datos cargados
     st.subheader("📄 Registros existentes")
 
-    data = obtener_nomina()
+    data = obtener_equivalencias()
     # cursos = ""
 
     if data:
