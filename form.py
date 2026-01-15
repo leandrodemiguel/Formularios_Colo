@@ -22,7 +22,6 @@ def formulario(tipoDeFormulario):
 
     # Arranca el formulario
     if (tipoDeFormulario == "firmas"):
-
         # Formulario de ingreso de datos para firmas:
         with st.form(f"form_alta_de_cursos_{st.session_state.form_key_datainput}"):
             nombre_del_curso = st.text_input("Nombre del Curso")
@@ -64,8 +63,7 @@ def formulario(tipoDeFormulario):
                     st.warning("Por favor, completá el nombre del curso.")
 
 
-    if (tipoDeFormulario == "nominas"):
-
+    elif (tipoDeFormulario == "nominas"):
         # Formulario de ingreso de datos para nóminas:
         with st.form(f"form_alta_de_nominas_{st.session_state.form_key_datainput}"):
             nombre_del_curso = st.text_input("Nombre del Curso")
@@ -104,8 +102,7 @@ def formulario(tipoDeFormulario):
                     st.warning("Por favor, completá el nombre del curso.")
 
 
-    if (tipoDeFormulario == "equivalencias"):
-
+    elif (tipoDeFormulario == "equivalencias"):
         # Formulario de ingreso de datos para equivalencias:
         with st.form(f"form_alta_de_equivalencias_{st.session_state.form_key_datainput}"):
 

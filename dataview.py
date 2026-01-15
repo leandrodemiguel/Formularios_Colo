@@ -5,6 +5,7 @@ import math
 def dataview(data, tipoDeFormulario):
 
     if (tipoDeFormulario == "firmas"):
+        # Para el formulario de firmas
         df = pd.DataFrame(data, columns=["ID",
                                             "Nombre del Curso",
                                             "Nombre del PDF",
@@ -141,8 +142,9 @@ def dataview(data, tipoDeFormulario):
             
         return df
 
-
+    
     elif (tipoDeFormulario == "nominas"):
+        # Para el formulario de nóminas
         df = pd.DataFrame(data, columns=["ID",
                                             "Nombre del Curso",
                                             "Nombre del PDF",
@@ -198,7 +200,7 @@ def dataview(data, tipoDeFormulario):
             with col3:
                 limpiar = st.button("Limpiar filtros")
 
-    # Si cambia algún filtro, volver a la página 1
+        # Si cambia algún filtro, volver a la página 1
         if (
             busqueda != st.session_state.busqueda_prev or
             anio != st.session_state.anio_prev
@@ -278,7 +280,9 @@ def dataview(data, tipoDeFormulario):
         return df
 
 
+
     elif (tipoDeFormulario == "equivalencias"):
+        # Para el formulario de equivalencias
         df = pd.DataFrame(data, columns=["ID",
                                             "Nombre del Curso",
                                             "Nombre del PDF",

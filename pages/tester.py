@@ -3,7 +3,6 @@ from loginlogic import (
     logout
 )
 from db import (
-    # crear_tabla,
     insertar_datos_prueba,
     obtener_datos_keepalive
 )
@@ -26,7 +25,7 @@ if (usuario == st.secrets["auth_user1"]):
 
     # Arranca la app:
 
-    tester = obtener_datos_keepalive()
+    data = obtener_datos_keepalive()
     # tester = ""
 
     basedeprueba = st.button("Generar datos de testeo")
@@ -36,7 +35,7 @@ if (usuario == st.secrets["auth_user1"]):
         st.success('datos escritos correctamente.')
 
     st.write("Exploramos los datos de testeo:")
-    dftest = dataview(tester)
+    dftest = dataview(data, "firmas") # Usamos el mismo dataview que las planillas de firmas.
 
 else:
     st.write("No tenés acceso a esta página")

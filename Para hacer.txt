@@ -1,0 +1,15 @@
+# Para las nóminas
+Nombre de curso
+Fecha de inicio
+Fecha de finalización
+Créditos
+Lugar del curso
+
+# Equivalencias
+Nombre del curso
+Créditos
+Código INAP completo
+
+# Falta arreglar
+edits.py
+equivalencias.py
