@@ -199,7 +199,7 @@ def dataeditor(df, tipoDeFormulario):
                     with st.form(f"form_key_datainput_{st.session_state.form_key_editar}"):
                         nuevo_nombre_del_curso = st.text_input("Nombre del Curso", curso["Nombre del Curso"])
                         nuevos_creditos = st.text_input("Créditos del curso", curso["Créditos del curso"])
-                        nuevo_codigoinap = st.text_input("Código de INAP", curso["Lugar de realización del curso"])
+                        nuevo_codigoinap = st.text_input("Código de INAP", curso["Código de INAP"])
                         nuevos_comentarios = st.text_input("Información adicional / Comentarios", curso["Información adicional / Comentarios"])
 
                         col1, col2 = st.columns(2)
