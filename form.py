@@ -117,7 +117,7 @@ def formulario(tipoDeFormulario):
 
             if submitted:
                 if nombre_del_curso:
-                    insertar_nomina(nombre_del_curso,
+                    insertar_equivalencias(nombre_del_curso,
                                 codigo_pdf,
                                 creditos,
                                 codigoinap,
