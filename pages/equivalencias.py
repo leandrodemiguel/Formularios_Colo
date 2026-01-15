@@ -53,7 +53,7 @@ if (usuario == st.secrets["auth_user1"] or usuario == st.secrets["auth_user2"] o
 
         # Bloque de edición de registros
         with st.expander("Editar registros"):
-            dataeditor(df)
+            dataeditor(df, "equivalencias")
 
     else:
         st.info("No hay registros cargados todavía.")
