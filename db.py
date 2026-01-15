@@ -145,12 +145,11 @@ def actualizar_equivalencias(id_curso, nombre_del_curso, creditos, codigoinap, c
         SET nombre_del_curso = %s, 
             creditos = %s, 
             codigoinap = %s, 
-            comentarios = %s, 
+            comentarios = %s
         WHERE id = %s
     """, (nombre_del_curso, creditos, codigoinap, comentarios, id_curso))
     conn.commit()
     conn.close()
-
 
 def obtener_equivalencias():
     conn = get_connection()
