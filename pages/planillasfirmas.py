@@ -3,7 +3,6 @@ from loginlogic import (
     logout
 )
 from db import (
-    # crear_tabla,
     obtener_cursos,
 )
 from form import (
@@ -34,7 +33,7 @@ if (usuario == st.secrets["auth_user1"] or usuario == st.secrets["auth_user2"] o
     st.title("📋 Carga de planillas de firmas")
 
     # Cargamos el formulario de ingreso de datos
-    formulario()
+    formulario("firmas")
 
     # Divisor
     st.divider()
@@ -42,12 +41,12 @@ if (usuario == st.secrets["auth_user1"] or usuario == st.secrets["auth_user2"] o
     # Mostrar los datos cargados
     st.subheader("📄 Registros existentes")
 
-    cursos = obtener_cursos()
+    data = obtener_cursos()
     # cursos = ""
 
-    if cursos:
+    if data:
 
-        df = dataview(cursos)
+        df = dataview(data, "firmas")
 
         # Divisor
         st.divider()
