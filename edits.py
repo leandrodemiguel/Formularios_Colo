@@ -144,7 +144,7 @@ def dataeditor(df, tipoDeFormulario):
                             borrar = st.form_submit_button("🗑️ Eliminar registro")
 
                         if guardar:
-                            actualizar_curso(id_ingresado,
+                            actualizar_nomina(id_ingresado,
                                             nuevo_nombre_del_curso,
                                             nueva_fecha_inicio,
                                             nueva_fecha_fin,
@@ -209,7 +209,7 @@ def dataeditor(df, tipoDeFormulario):
                             borrar = st.form_submit_button("🗑️ Eliminar registro")
 
                         if guardar:
-                            actualizar_curso(id_ingresado,
+                            actualizar_equivalencias(id_ingresado,
                                             nuevo_nombre_del_curso,
                                             nuevos_creditos,
                                             nuevo_codigoinap,
@@ -221,7 +221,7 @@ def dataeditor(df, tipoDeFormulario):
                             st.rerun()
 
                         if borrar:
-                            eliminar_nomina(id_ingresado)
+                            eliminar_equivalencias(id_ingresado)
                             st.warning(f"Equivalencia con ID {id_ingresado} eliminada.")
                             time.sleep(0.5)
                             st.session_state.form_key_editar += 1 # Incrementar el key para forzar reinicio del formulario
