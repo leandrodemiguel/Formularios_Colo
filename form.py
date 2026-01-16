@@ -77,7 +77,7 @@ def formulario(tipoDeFormulario):
                 min_value=date(1980, 1, 1),
                 max_value=date.today().replace(year=date.today().year + 5)
                 )
-            creditos = st.number_input("Cantidad de créditos otorgados")
+            creditos = st.number_input("Cantidad de créditos otorgados", min_value=0, step=1) # min value y step son para que streamlit no muestre decimales.
             lugar = st.text_input("Lugar de realización del curso")
             comentarios = st.text_input("Información adicional / Comentarios")
             codigo_pdf = generar_codigo_curso()
@@ -109,7 +109,7 @@ def formulario(tipoDeFormulario):
             # nombre_del_curso, codigo_pdf, creditos, codigoinap, comentarios
 
             nombre_del_curso = st.text_input("Nombre del Curso")
-            creditos = st.number_input("Cantidad de créditos otorgados")
+            creditos = st.number_input("Cantidad de créditos otorgados", min_value=0, step=1)
             codigoinap = st.text_input("Código de INAP")
             comentarios = st.text_input("Información adicional / Comentarios")
             codigo_pdf = generar_codigo_curso()
