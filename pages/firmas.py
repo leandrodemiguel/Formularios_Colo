@@ -46,14 +46,14 @@ if (usuario == st.secrets["auth_user1"] or usuario == st.secrets["auth_user2"] o
 
     if data:
 
-        df = dataview(data, "firmas")
+        st.dataframe = dataview(data, "firmas")
 
         # Divisor
         st.divider()
 
         # Bloque de edición de registros
-        with st.expander("Editar registros"):
-            dataeditor(df, "firmas")
+        # with st.expander("Editar registros"):
+        #     dataeditor(df, "firmas")
 
     else:
         st.info("No hay registros cargados todavía.")
