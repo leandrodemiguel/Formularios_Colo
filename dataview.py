@@ -141,7 +141,7 @@ def dataview(data, tipoDeFormulario):
             st.rerun()
         
 
-        df['Inicio del curso'] = df['Inicio del curso'].dt.strftime('%Y-%m-%d')
+        df['Inicio del curso'] = pd.to_datetime(df['Inicio del curso']).dt.strftime('%Y-%m-%d')
         # df['fecha'] = df['fecha'].dt.date
 
 
