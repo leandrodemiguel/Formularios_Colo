@@ -48,9 +48,9 @@ if (usuario == st.secrets["auth_user1"] or usuario == st.secrets["auth_user2"] o
 
         df = dataview(data, "firmas")
 
-        st.write("Tipo columna:", df['fecha'].dtype)
-        st.write("Primeros 3 valores:", df['fecha'].head(3).tolist())
-        st.write("¿Hay NaN?", df['fecha'].isna().sum())
+        st.write("Tipo columna:", df['Inicio del curso'].dtype)
+        st.write("Primeros 3 valores:", df['Inicio del curso'].head(3).tolist())
+        st.write("¿Hay NaN?", df['Inicio del curso'].isna().sum())
 
         # Divisor
         st.divider()
