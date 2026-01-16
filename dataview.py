@@ -139,7 +139,12 @@ def dataview(data, tipoDeFormulario):
         if pagina != st.session_state.pagina:
             st.session_state.pagina = pagina
             st.rerun()
-            
+        
+
+        df['Inicio del curso'] = df['Inicio del curso'].dt.strftime('%Y-%m-%d')
+        # df['fecha'] = df['fecha'].dt.date
+
+
         return df
 
     
