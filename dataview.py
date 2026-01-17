@@ -103,7 +103,11 @@ def dataview(data, tipoDeFormulario):
         inicio = (st.session_state.pagina - 1) * registros_por_pagina
         fin = inicio + registros_por_pagina
 
-        # Mostrar la porción del dataframe
+        # Antes de mostrar el dataframe, reconvertimos las fechas para que no muestre la hora
+        df["Inicio del curso"] = pd.to_datetime(df["Inicio del curso"]).dt.date
+        df["Fin del curso"] = pd.to_datetime(df["Fin del curso"]).dt.date
+
+        # Mostrar la porción del dataframe que corresponde a una página
         st.dataframe(df.iloc[inicio:fin], use_container_width=True)
 
         if busqueda or anio:
@@ -240,6 +244,10 @@ def dataview(data, tipoDeFormulario):
         inicio = (st.session_state.pagina - 1) * registros_por_pagina
         fin = inicio + registros_por_pagina
 
+        # Antes de mostrar el dataframe, reconvertimos las fechas para que no muestre la hora
+        df["Inicio del curso"] = pd.to_datetime(df["Inicio del curso"]).dt.date
+        df["Fin del curso"] = pd.to_datetime(df["Fin del curso"]).dt.date
+
         # Mostrar la porción del dataframe
         st.dataframe(df.iloc[inicio:fin], use_container_width=True)
 
@@ -347,6 +355,8 @@ def dataview(data, tipoDeFormulario):
         # Calcular el rango de filas a mostrar
         inicio = (st.session_state.pagina - 1) * registros_por_pagina
         fin = inicio + registros_por_pagina
+
+        # Acá no cambiamos el tema del formato de fecha porque NO hay campos de fecha en este formulario
 
         # Mostrar la porción del dataframe
         st.dataframe(df.iloc[inicio:fin], use_container_width=True)
